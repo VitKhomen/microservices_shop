@@ -20,14 +20,14 @@ class UserAdmin(BaseUserAdmin):
     """Адміністрування користувачів"""
     inlines = (UserProfileInline,)
 
-    list_display = ('email', 'username', 'first_name', 'last_name',
+    list_display = ('email', 'first_name', 'last_name',
                     'is_active', 'is_staff', 'date_joined')
     list_filter = ('is_active', 'is_staff', 'is_superuser', 'date_joined')
     search_fields = ('email', 'username', 'first_name', 'last_name')
     ordering = ('-date_joined',)
 
     fieldsets = (
-        (None, {'fields': ('email', 'username', 'password')}),
+        (None, {'fields': ('email', 'password')}),
         (_('Personal info'), {'fields': ('first_name', 'last_name')}),
         (_('Permissions'), {
             'fields': ('is_active', 'is_staff', 'is_superuser',
@@ -39,7 +39,7 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'first_name', 'last_name',
+            'fields': ('email', 'first_name', 'last_name',
                        'password1', 'password2', 'is_active', 'is_staff'),
         }),
     )

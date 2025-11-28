@@ -8,7 +8,6 @@ from .serializers import (
     UserProfileSerializer,
     UserRegistrationSerializer
 )
-from services.user_service.apps.users import serializers
 
 
 class RegisterView(generics.CreateAPIView):

@@ -1,10 +1,10 @@
 from django.urls import path
 
-from . import views
+from .views import RegisterView, ProfileView, ProfileUpdateView
 
 
 urlpatterns = [
-    path('register/', views.RegisterView.as_view(), name='register'),
-    path('profile/', views.ProfileView.as_view(), name='profile'),
-    path('profile/update', views.ProfileUpdateView.as_view(), name='profile-update'),
+    path('register/', RegisterView.as_view(), name='register'),
+    path('profile/', ProfileView.as_view(), name='profile'),
+    path('profile/update', ProfileUpdateView.as_view(), name='profile-update'),
 ]
