@@ -63,7 +63,7 @@ class ProductService:
     '''Сервіс для взаімодії з сервісом продуктів'''
 
     @staticmethod
-    def reserve_product(items: List[Dict]) -> bool:
+    def reserve_products(items: List[Dict]) -> bool:
         '''Резервування продуктів'''
         try:
             for item in items:
@@ -82,7 +82,7 @@ class ProductService:
             return False
 
     @staticmethod
-    def release_product(items: List[Dict]) -> bool:
+    def release_products(items: List[Dict]) -> bool:
         '''Вивільнення зарезервованих товарів'''
         try:
             for item in items:

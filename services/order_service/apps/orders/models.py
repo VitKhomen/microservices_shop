@@ -30,11 +30,16 @@ class Order(models.Model):
     @property
     def item_count(self):
         '''Кількість товарів в замовленні'''
-        return sum(item.quantity for item in self.item.all())
+        return sum(item.quantity for item in self.items.all())
+
+    @property
+    def total_quantity(self):
+        '''Загальна кількість товар'''
+        return sum(item.quantity for item in self.items.all())
 
     def calculate_total(self):
         '''Перерахування сумми заказу'''
-        total = sum(item.subtotal for item in self.item.all())
+        total = sum(item.subtotal for item in self.items.all())
         self.total_amount = Decimal(total)
         return self.total_amount
 

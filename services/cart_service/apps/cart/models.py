@@ -16,7 +16,7 @@ class Cart(models.Model):
 
     @property
     def total_items(self):
-        return sum(item.quantity() for item in self.items.all())
+        return sum(item.quantity for item in self.items.all())
 
     def clear(self):
         self.items.all().delete()

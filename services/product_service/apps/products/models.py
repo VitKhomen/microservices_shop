@@ -47,7 +47,7 @@ def is_in_stock(self):
 
 def reserve_quantity(self, quantity):
     '''Резервна кількість товару'''
-    if self.ststock_quantity >= quantity:
+    if self.stock_quantity >= quantity:
         self.stock_quantity -= quantity
         self.save()
         return True

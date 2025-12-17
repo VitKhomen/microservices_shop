@@ -14,7 +14,7 @@ class ProductServices:
         '''Отримання інформації о товарі'''
         try:
             response = requests.get(
-                f'{settings.PRODUT_SERVECE_URL}/api/products/{product_id}',
+                f'{settings.PRODUCT_SERVICE_URL}/api/products/{product_id}',
                 timeout=10
             )
             if response.status_code == 200:

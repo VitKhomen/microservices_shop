@@ -92,7 +92,7 @@ def create_order(request):
 
             # Резервуємо товари
             logger.info(f"Reserving products: {items_to_reserve}")
-            if ProductService.reserve_product(items_to_reserve):
+            if not ProductService.reserve_products(items_to_reserve):
                 return Response({
                     'error': 'Failed to reserve products. Some item may be out of stock'
                 }, status=status.HTTP_400_BAD_REQUEST)
@@ -206,7 +206,7 @@ def update_order_status(request, pk):
                     'product_id': item.product_id,
                     'quantity': item.quantity
                 })
-            ProductService.release_product(items_to_release)
+            ProductService.release_products(items_to_release)
 
             event_bus.publish_event('order.cancelled', {
                 'order_id': order.id,
