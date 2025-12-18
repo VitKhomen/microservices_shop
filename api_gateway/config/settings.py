@@ -91,6 +91,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Service URLs
+# docker run -d --name redis-local -p 6379:6379 redis:7-alpine
 MICROSERVICES = {
     'user-service': 'http://localhost:8004',
     'product-service': 'http://localhost:8001',

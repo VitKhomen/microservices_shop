@@ -23,7 +23,7 @@ class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 
 class ProductListView(generics.ListCreateAPIView):
-    queryset = Product.objects.filter(is_active=True)
+    queryset = Product.objects.filter(is_active=True, stock_quantity__gt=0)
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend,
                        filters.SearchFilter, filters.OrderingFilter]

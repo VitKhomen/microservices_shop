@@ -74,12 +74,12 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         # Изменили на AllowAny по умолчанию
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
     ],
-    # 'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
 }
 
 # JWT Settings
@@ -100,29 +100,29 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True  # Для разработки
-# CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_CREDENTIALS = True
 
 # Дополнительные CORS настройки
-# CORS_ALLOW_HEADERS = [
-#     'accept',
-#     'accept-encoding',
-#     'authorization',
-#     'content-type',
-#     'dnt',
-#     'origin',
-#     'user-agent',
-#     'x-csrftoken',
-#     'x-requested-with',
-# ]
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
-# CORS_ALLOW_METHODS = [
-#     'DELETE',
-#     'GET',
-#     'OPTIONS',
-#     'PATCH',
-#     'POST',
-#     'PUT',
-# ]
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
@@ -141,16 +141,16 @@ LOGGING = {
             'class': 'logging.StreamHandler',
         },
     },
-    # 'loggers': {
-    #     'django': {
-    #         'handlers': ['console'],
-    #         'level': 'INFO',
-    #     },
-    #     'apps.users': {
-    #         'handlers': ['console'],
-    #         'level': 'DEBUG',
-    #     },
-    # },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+        },
+        'apps.users': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
     'root': {
         'handlers': ['console'],
         'level': 'INFO',

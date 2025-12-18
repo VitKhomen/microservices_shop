@@ -29,7 +29,7 @@ class ProductServices:
         '''Перевірка наявності на складі'''
         try:
             response = requests.get(
-                f'{settings.PRODUT_SERVECE_URL}/api/products/{product_id}/check-availability/',
+                f'{settings.PRODUCT_SERVICE_URL}/api/products/{product_id}/check-availability/',
                 params={'quantity': quantity},
                 timeout=10
             )

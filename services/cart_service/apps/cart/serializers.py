@@ -18,7 +18,7 @@ class CartItemSerializer(serializers.ModelSerializer):
 
     def get_product_info(self, obj):
         '''Получаєм ітформацію о товарі'''
-        product_data = ProductServices.get_product_info(obj.product_id)
+        product_data = ProductServices.get_product(obj.product_id)
         if product_data:
             return {
                 'name': product_data.get('name'),

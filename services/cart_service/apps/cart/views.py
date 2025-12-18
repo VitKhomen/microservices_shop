@@ -21,7 +21,7 @@ class IsAuthenticatedCustom:
     '''Кастомний клас перевірки автентифікації користувача'''
 
     def has_permission(self, request, view):
-        return hasattr(request, 'user') and request.user_id is not None
+        return hasattr(request, 'user_id') and request.user_id is not None
 
 
 class CartView(generics.RetrieveAPIView):

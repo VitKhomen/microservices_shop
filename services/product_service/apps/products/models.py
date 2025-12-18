@@ -39,22 +39,19 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
+    @property
+    def is_in_stock(self):
+        return self.stock_quantity > 0
 
-@property
-def is_in_stock(self):
-    return self.stock_quantity > 0
+    def reserve_quantity(self, quantity):
+        '''Резервна кількість товару'''
+        if self.stock_quantity >= quantity:
+            self.stock_quantity -= quantity
+            self.save()
+            return True
+        return False
 
-
-def reserve_quantity(self, quantity):
-    '''Резервна кількість товару'''
-    if self.stock_quantity >= quantity:
-        self.stock_quantity -= quantity
+    def release_quantity(self, quantity):
+        '''Звільнити зарезервовану кількість товару'''
+        self.stock_quantity += quantity
         self.save()
-        return True
-    return False
-
-
-def release_quantity(self, quantity):
-    '''Звільнити зарезервовану кількість товару'''
-    self.stock_quantity += quantity
-    self.save()
